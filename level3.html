@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Level 3 — The Glitch Map</title>
+  <link rel="stylesheet" href="shared.css">
+  <script src="shared.js" defer></script>
+  <script src="level3.js" defer></script>
+</head>
+<body>
+  <div class="centered">
+    <p class="typewriter" data-text="You access the Archivist's Travel History. A world map appears with 6 flickering cities. A note reads: 'I followed the sun, but I started in the land where time begins. I ended where the ocean meets the edge of the world.'"></p>
+    <svg id="map" viewBox="0 0 800 300" style="width:100%;height:300px;background:#001;margin-top:8px;">
+      <!-- abstract continents -->
+      <rect x="0" y="0" width="800" height="300" fill="transparent" />
+      <!-- Cities -->
+      <g class="city" data-name="Tokyo" transform="translate(700,80)"><circle r="8" fill="#ff0"/><text x="12" y="4">Tokyo</text></g>
+      <g class="city" data-name="Cairo" transform="translate(430,140)"><circle r="8" fill="#ff0"/><text x="12" y="4">Cairo</text></g>
+      <g class="city" data-name="Paris" transform="translate(360,120)"><circle r="8" fill="#ff0"/><text x="12" y="4">Paris</text></g>
+      <g class="city" data-name="London" transform="translate(320,110)"><circle r="8" fill="#ff0"/><text x="12" y="4">London</text></g>
+      <g class="city" data-name="New York" transform="translate(120,110)"><circle r="8" fill="#ff0"/><text x="12" y="4">New York</text></g>
+      <g class="city" data-name="Sydney" transform="translate(760,240)"><circle r="8" fill="#ff0"/><text x="12" y="4">Sydney</text></g>
+    </svg>
+
+    <div id="sequence" style="margin-top:12px">SEQUENCE: <span id="seqSlots">[?] > [?] > [?] > [?] > [?] > [?]</span></div>
+
+    <form class="terminal-input" id="mapForm">
+      ENTER PASSCODE: <input id="mapInput" type="text" autocomplete="off" />
+    </form>
+    <div class="hint-command" style="margin-top:14px;">
+      <form><input placeholder="> _" /></form>
+    </div>
+  </div>
+</body>
+</html>

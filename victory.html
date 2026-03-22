@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Victory — Master Rank</title>
+  <link rel="stylesheet" href="shared.css">
+  <script>
+  document.addEventListener('DOMContentLoaded', ()=>{
+    const score = Number(sessionStorage.getItem('score')||'0');
+    document.getElementById('finalScore').textContent = score + ' pts';
+    // simple insertion into leaderboard second slot
+    document.getElementById('playerScore').textContent = score + ' pts';
+
+    // Typewriter effect for the boot lines
+    const el = document.querySelector('.typewriter');
+    const playTypeTick = window.playTypeTick || function(){};
+    async function typeText(node, text, delay=40){ node.textContent = '';
+      for(let i=0;i<text.length;i++){ node.textContent += text[i]; playTypeTick(); await new Promise(r=>setTimeout(r, delay)); }
+    }
+    const text = el.textContent.replace(/\\n/g,'\n');
+    typeText(el, text, 40);
+  });
+  </script>
+</head>
+<body>
+  <div class="centered">
+    <div class="typewriter">&gt; WIPE COMMAND... CANCELLED.\n&gt; UPLOADING TRUTH... COMPLETE.\n&gt; SYSTEM RESTORED.</div>
+    <pre style="margin-top:12px;color:var(--fg);">╔══════════════════════════════════════╗
+║   [CLASSIFIED] — THE ARCHIVIST      ║
+║   DOCUMENT REF: ARCHIVE-ZERO-0001   ║
+╠══════════════════════════════════════╣
+║ "The truth was never hidden.        ║
+║  It was buried under comfort.       ║
+║  You chose discomfort. You chose    ║
+║  truth. That is enough."            ║
+║                              — T.A. ║
+╚══════════════════════════════════════╝</pre>
+    <h3>RANK: ★★★★★ MASTER</h3>
+    <div>FINAL SCORE: <span id="finalScore">0 pts</span></div>
+
+    <h4 style="margin-top:12px">Leaderboard</h4>
+    <pre style="background:#050;border-radius:6px;padding:8px;">╔═══╦══════════════════╦══════════╦═════════════╗
+║ # ║ AGENT            ║ SCORE    ║ RANK        ║
+╠═══╬══════════════════╬══════════╬═════════════╣
+║ 1 ║ AGENT_ZERO       ║ 4721 pts ║ MASTER ★★★★★║
+║ 2 ║ [PLAYER]         ║ <span id="playerScore">???? pts</span> ║ MASTER ★★★★★║
+║ 3 ║ CIPHER_HAWK      ║ 3890 pts ║ ELITE  ★★★★ ║
+║ 4 ║ GHOST_PROTOCOL   ║ 3201 pts ║ ELITE  ★★★★ ║
+║ 5 ║ ORACLE_7         ║ 2540 pts ║ AGENT  ★★★  ║
+╚═══╩══════════════════╩══════════╩═════════════╝</pre>
+  </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Level 2 — The Frequency of Truth</title>
+  <link rel="stylesheet" href="shared.css">
+  <script src="shared.js" defer></script>
+  <script src="level2.js" defer></script>
+</head>
+<body>
+  <div class="centered">
+    <div class="typewriter" data-text="You break into the Communication Log. A file labeled VOICE_NOTE_04.wav appears. It sounds like distorted static and rhythmic beeping."></div>
+    <h2>📄 VOICE_NOTE_04.wav</h2>
+    <button id="playFile" class="btn">Play VOICE_NOTE_04.wav</button>
+    <canvas id="viz" width="800" height="150" style="display:block;margin-top:12px;background:#001"></canvas>
+
+    <form class="terminal-input" id="passForm">
+      ENTER PASSCODE:
+      <input id="passInput" type="text" autocomplete="off" placeholder="Enter passcode" style="background:#041204;border:1px solid rgba(0,255,65,.08);padding:.4rem .6rem;min-width:180px;margin-left:8px;" />
+      <button type="submit" class="submit-btn" style="margin-left:8px">SUBMIT</button>
+      <button type="button" class="btn" style="margin-left:8px" onclick="document.getElementById('passInput').value='1089'">Fill Passcode</button>
+    </form>
+    <div class="hint-command" style="margin-top:14px;">
+      <form><input placeholder="> _" /></form>
+    </div>
+  </div>
+</body>
+</html>

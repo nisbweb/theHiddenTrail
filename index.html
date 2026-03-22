@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>The Archivist — Prologue</title>
+  <link rel="stylesheet" href="shared.css">
+  <script src="shared.js" defer></script>
+</head>
+<body class="prologue">
+  <main id="prologue" class="centered">
+    <div id="typeout" class="typewriter"></div>
+    <div id="story" class="typewriter small"></div>
+    <div id="prompt" class="blinking hidden">[ PRESS ENTER TO BEGIN ]</div>
+  </main>
+
+  <script>
+  const lines = [
+    "> Connection Established...",
+    "> Unauthorized Access Detected.",
+    "> Source: The Archivist (Status: Missing)"
+  ];
+
+  const story = `"You are a Digital Recovery Agent. A famous whistleblower known as 'The Archivist' has vanished. Before disappearing, he uploaded his consciousness into a fragmented server. You have 60 minutes to bypass his security layers and download 'The Truth' before the government Wipe Command deletes everything."`;
+
+  const out = document.getElementById('typeout');
+  const sOut = document.getElementById('story');
+  const prompt = document.getElementById('prompt');
+
+  const playTypeTick = window.playTypeTick || function(){};
+
+  async function type(el, text, delay=40){
+    for(let i=0;i<text.length;i++){ el.textContent += text[i]; playTypeTick(); await new Promise(r=>setTimeout(r,delay)); }
+  }
+
+  (async ()=>{
+    for(let i=0;i<lines.length;i++){
+      await type(out, lines[i], 45);
+      out.textContent += '\n';
+      await new Promise(r=>setTimeout(r,500));
+    }
+    await new Promise(r=>setTimeout(r,300));
+    await type(sOut, story, 30);
+    prompt.classList.remove('hidden');
+    window.addEventListener('keydown', async (e)=>{
+      if(e.key === 'Enter'){
+        sessionStorage.setItem('score','5000');
+        sessionStorage.setItem('timeRemaining', String(3600));
+        sessionStorage.setItem('hintFrozenUntil','0');
+        sessionStorage.setItem('lockUntil','0');
+        sessionStorage.setItem('mapIconClicks','0');
+        sessionStorage.setItem('failReason','');
+        window.location.href = 'level1.html';
+      }
+    }, {once:true});
+  })();
+  </script>
+</body>
+</html>
