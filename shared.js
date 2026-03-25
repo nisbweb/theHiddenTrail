@@ -145,7 +145,7 @@
   function escapeHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
   // Wrong attempt -> lock
-  function triggerSystemLock(){ const until = Date.now()+30000; sessionStorage.setItem('lockUntil', String(until)); applyLock(30000); disableInputs(true); setTimeout(()=>{ disableInputs(false); },31000); }
+  function triggerSystemLock(){ const until = Date.now()+15000; sessionStorage.setItem('lockUntil', String(until)); applyLock(15000); disableInputs(true); setTimeout(()=>{ disableInputs(false); },16000); }
 
   // Expose API
   window.GA.createHeader = createHeader; window.GA.createFooter = createFooter; window.GA.startClock = startClock; window.GA.attachHint = attachHintCommand; window.GA.checkLockOnLoad = checkLockOnLoad; window.GA.triggerSystemLock = triggerSystemLock; window.GA.ctx = ctx;
