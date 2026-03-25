@@ -9,9 +9,9 @@
   document.addEventListener('DOMContentLoaded', ()=>{
     const reason = sessionStorage.getItem('failReason') || 'timeout'; const score = sessionStorage.getItem('score') || '0';
     const out = document.getElementById('output'); if(reason === 'selfish'){
-      out.textContent = `> SCORE SUBMITTED.\n> You chose yourself over the truth.\n> The files were deleted. The Archivist's message was never delivered.\n> RANK: ✗ COMPROMISED\n> FINAL SCORE: ${score}`;
+      out.textContent = `> SCORE SUBMITTED.\n> You chose yourself over the truth.\n> The files were deleted. The Archivist's message was never delivered.\n> RANK: ✗ COMPROMISED\n`;
     } else {
-      out.textContent = `> CONNECTION LOST.\n> TIME EXPIRED. THE WIPE COMMAND EXECUTED.\n> The Archivist's files are gone forever.\n> RANK: ✗ ELIMINATED\n> FINAL SCORE: ${score}`;
+      out.textContent = `> CONNECTION LOST.\n> TIME EXPIRED. THE WIPE COMMAND EXECUTED.\n> The Archivist's files are gone forever.\n> RANK: ✗ ELIMINATED\n> `;
     }
     document.getElementById('playAgain').addEventListener('click', ()=>{ sessionStorage.clear(); window.location.href='index.html'; });
   });
@@ -25,7 +25,6 @@
   </header>
   <div class="centered">
     <pre id="output" style="color:var(--fg)"></pre>
-    <button id="playAgain" class="btn" style="margin-top:12px">PLAY AGAIN</button>
   </div>
 </body>
 </html>

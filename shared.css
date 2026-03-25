@@ -44,3 +44,19 @@ input[type=text]{background:transparent;border:0;color:var(--fg);outline:none;fo
 @keyframes flicker { 0%{opacity:1} 50%{opacity:0.15} 100%{opacity:1} }
 .city circle{animation: flicker 1s infinite; transform-origin: center;}
 .city.solid circle{animation:none;}
+
+/* Responsive: small screens / phones */
+@media (max-width: 600px) {
+	header.shared{height:44px;padding:0 8px}
+	body{padding-top:48px}
+	header .center{font-size:0.95rem}
+	header.shared img.logo, header.shared img.corner{height:22px}
+	.centered{max-width:95%;margin:4vh auto;padding:1rem}
+	.typewriter{font-size:.95rem}
+	.small{font-size:.9rem}
+	.btn{padding:.6rem .9rem;font-size:.95rem}
+	.map-icon{font-size:1.05rem;padding:.5rem}
+	.fake-window h2{font-size:1rem}
+	input[type=text]{font-size:.95rem}
+	canvas, svg{width:100%;height:auto}
+}
