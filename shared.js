@@ -44,7 +44,7 @@
 
   // Lock overlay
   let lockTimer=null;
-  function applyLock(remainingMs){ clearInterval(lockTimer); const overlay=document.createElement('div'); overlay.className='overlay'; overlay.innerHTML=`<div class="lock-overlay"><h2>⚠ SYSTEM LOCK — UNAUTHORIZED ATTEMPT DETECTED</h2><div id="lock-count">${Math.ceil(remainingMs/1000)}s</div></div>`; document.body.appendChild(overlay);
+  function applyLock(remainingMs){ clearInterval(lockTimer); const overlay=document.createElement('div'); overlay.className='overlay'; overlay.innerHTML=`<div class="lock-overlay"><h2>⚠ SYSTEM LOCK - UNAUTHORIZED ATTEMPT DETECTED</h2><div id="lock-count">${Math.ceil(remainingMs/1000)}s</div></div>`; document.body.appendChild(overlay);
     const start=Date.now(); lockTimer = setInterval(()=>{
       const left = Math.max(0, Math.ceil((remainingMs - (Date.now()-start))/1000)); const el=document.getElementById('lock-count'); if(el) el.textContent=left+'s';
       if((Date.now()-start) >= remainingMs){ clearInterval(lockTimer); overlay.remove(); sessionStorage.setItem('lockUntil','0'); }

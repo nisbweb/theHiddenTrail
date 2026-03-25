@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
       setTimeout(()=>{ window.location.href='level2.html'; },1400);
     } else {
       try{ window.GA && window.GA.triggerSystemLock && window.GA.triggerSystemLock(); }catch(e){}
-      alert('INCORRECT — SYSTEM LOCKED');
+      alert('INCORRECT - SYSTEM LOCKED');
     }
   });
 });

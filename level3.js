@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
       } else {
         document.body.classList.add('warn-border'); setTimeout(()=>document.body.classList.remove('warn-border'),400);
         pos=0; updateSlots(); try{ window.GA && window.GA.triggerSystemLock && window.GA.triggerSystemLock(); }catch(e){}
-        alert('INCORRECT SEQUENCE — RESETTING');
+        alert('INCORRECT SEQUENCE - RESETTING');
         // reset solid/flicker state
         document.querySelectorAll('#map .city').forEach(h=>{ h.classList.remove('solid'); });
       }
@@ -32,5 +32,5 @@ document.addEventListener('DOMContentLoaded', ()=>{
   function updateSlots(){ const out = order.map((o,i)=> i<pos? o : '[?]'); slots.textContent = out.join(' > '); }
   updateSlots();
 
-  const form = document.getElementById('mapForm'); form.addEventListener('submit', (e)=>{ e.preventDefault(); const v = (document.getElementById('mapInput').value||'').trim().toUpperCase(); if(v === 'TIMEZONE_7734'){ window.beep(1200,120); setTimeout(()=> window.location.href='level4.html',700); } else { window.GA.triggerSystemLock(); alert('INCORRECT — SYSTEM LOCKED'); } });
+  const form = document.getElementById('mapForm'); form.addEventListener('submit', (e)=>{ e.preventDefault(); const v = (document.getElementById('mapInput').value||'').trim().toUpperCase(); if(v === 'TIMEZONE_7734'){ window.beep(1200,120); setTimeout(()=> window.location.href='level4.html',700); } else { window.GA.triggerSystemLock(); alert('INCORRECT - SYSTEM LOCKED'); } });
 });

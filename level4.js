@@ -17,6 +17,17 @@ document.addEventListener('DOMContentLoaded', ()=>{
   document.getElementById('door2').addEventListener('click', ()=>{ push('SYSTEM_AI > Violence solves nothing. Try again.'); });
   document.getElementById('door3').addEventListener('click', ()=>{ push('SYSTEM_AI > Silence is not an answer.'); });
 
-  const initial = Number(sessionStorage.getItem('mapIconClicks')||'0'); const required = initial + 3;
-  const poll = setInterval(()=>{ const now = Number(sessionStorage.getItem('mapIconClicks')||'0'); if(now >= required){ clearInterval(poll); alert('THE ANSWER WAS ALWAYS THERE ✓'); window.location.href='level5.html'; } },300);
+  // Require 3 fresh clicks per page load to solve; do not persist progress between visits
+  const required = 3;
+  let mapClicks = 0;
+  const mapBtn = document.getElementById('mapIcon');
+  if(mapBtn){
+    mapBtn.addEventListener('click', ()=>{
+      mapClicks += 1;
+      if(mapClicks >= required){
+        alert('THE ANSWER WAS ALWAYS THERE ✓');
+        window.location.href = 'level5.html';
+      }
+    });
+  }
 });
